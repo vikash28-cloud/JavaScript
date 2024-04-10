@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>set interval & set timeout</title>
+    <style>
+        .container
+        {
+            
+            width: 75vw;
+            margin: 10px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .box{
+            width: 40vh;
+            height: 40vh;
+            border: 1px solid black;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Set Time Interval & Set Time Out</h1>
+
+    <div class="container">
+        <div class="box">box1</div>
+    </div>
+
+    <script>
+        function randomColor(){
+            let rgb1=  Math.floor(Math.random() * 255);
+            let rgb2=  Math.floor(Math.random() * 255);
+            let rgb3=  Math.floor(Math.random() * 255);
+            return `rgb(${rgb1} ${rgb2} ${rgb3})`
+        }
+        //document.querySelector(".box").style.background = randomColor();
+
+        let a = setInterval(() => {
+            document.querySelector(".box").style.background = randomColor();
+
+        }, 1000);//1000 = 2sec        
+        // clear interval is used to cancel setinteval
+
+        // set timeout   => it runs only once after a certain period of time
+        setTimeout(() => {
+                clearInterval(a);
+        }, 5000);//it executes after 5 sec
+
+        // clear timeout is used to cancel settimeout
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises</title>
+</head>
+
+<body>
+    <h1>Promises</h1>
+
+    <script>
+        // A promise represents the eventual completion or failure of an asynchronous operation and its resulting value.
+        /*
+            Developers use promises in JavaScript whenever they need to work with asynchronous operations, such as:
+
+            Making HTTP requests to fetch data from a server.
+            Reading/writing files asynchronously.
+            Delaying execution using setTimeout() or setInterval().
+            Interacting with databases.
+            Any other operation that involves waiting for a result from an external source.
+        */
+        // let promise = new Promise((resolve, reject) => { })
+
+        let promise = new Promise((resolve, reject) => {
+            console.log("this is the promise");
+            resolve("hey task completed successfully");
+            // reject("there is some error occured while fetching data");
+        })
+
+        function fetchData(data) {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    console.log(data);
+                    resolve("data is fetched successfully");
+
+                }, 5000);
+            })
+        }
+
+        // try catch used in promise
+        let promise2 = new Promise((resolve, reject) => {
+            console.log("result is ", 10);
+            // reject("promise is rejected");
+            resolve(10);
+        }).then((result) => {
+            console.log(result);
+        }).catch((err) => {
+            console.log(err);
+        })
+        // then is excuted when promise is fullfilled resolved()
+        // catch is executed when promise is rejected
+
+        // promise chaining
+        fetchData(10).then((result) => {
+            return fetchData(20);
+        }).then((result) => {
+            return fetchData(30);
+        }).then((result) => {
+            console.log(result);
+        })
+
+    </script>
+</body>
+
+</html>

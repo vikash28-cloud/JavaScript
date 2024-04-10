@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacker Terminal</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        body {
+            background-color: rgba(234, 231, 231, 0.486);
+        }
+
+        h1 {
+            margin: 5px 15px;
+            font-family: 'Courier New', Courier, monospace;
+            color: rgb(34, 94, 34);
+        }
+
+        .container {
+            background-color: rgb(0, 0, 0);
+            width: 90vw;
+            min-height: 80vh;
+            margin: 30px auto;
+            padding: 10px;
+            box-sizing: border-box;
+            border-radius: 5px;
+            box-shadow: 10px 10px 50px black;
+            position:relative;
+        }
+
+        p {
+            color: rgb(3, 160, 3);
+            line-height: 2;
+            margin: 0px 10px;
+        }
+
+        .commands {
+            margin: 0px 28px;
+        }
+        .container h1{
+            text-align: center;
+        }
+        .tenor-gif-embed{
+            position :absolute;
+            top: 10%;
+            left: 40%;
+            display:inline-block;
+            
+        }
+        
+    </style>
+</head>
+
+<body>
+    <h1>Hacker's terminal</h1>
+
+    <div class="container">
+        <p>@Anonymous Attacking....</p>
+        <div class="commands">
+
+        </div>
+        <div class="tenor-gif-embed" data-postid="8766696" data-share-method="host" data-aspect-ratio="1.37302" data-width="10%"><a href="https://tenor.com/view/loading-gif-8766696">Loading GIF</a>from <a href="https://tenor.com/search/loading-gifs">Loading GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+    </div>
+    <script>
+        let commandClass = document.querySelector(".commands");
+
+        async function getCommand(command) {
+            let randTime = Math.floor(Math.random() * 4)+1;
+            randTime = randTime*1000;
+            console.log(randTime);
+            return new Promise((resolve, reject) => {
+
+                setTimeout(() => {
+                    let p = `<p>${command}</p>`
+                    commandClass.innerHTML += p;
+                    resolve();
+                }, randTime);
+
+            })
+
+        }
+        async function main() {
+            await getCommand("Initializng Script...");
+            await getCommand("Preparing for attack");
+            await getCommand("Injecting Sql");
+
+            await getCommand("Disabling Firewall...");
+            await getCommand("\n");
+        await getCommand("Fetching data from Database ...");
+        }
+        
+        // get ... dots
+        setInterval(() => {
+            let last = commandClass.lastElementChild;
+            if(last.innerHTML.endsWith("...")){
+                last.innerHTML = last.innerHTML.slice(0,last.innerHTML.length-3)
+            }
+            else{
+                last.innerHTML = last.innerHTML+"."
+            }
+        }, 700);
+
+        async function terminal(){
+            await main();
+            let h1=  document.createElement("h1");
+            h1.innerHTML = "You are hacked";
+            commandClass.append(h1);
+        }
+        terminal();
+
+    </script>
+</body>
+
+</html>=

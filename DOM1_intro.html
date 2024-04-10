@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom</title>
+    <style>
+        .box{
+            width: 35px;
+            height: 30px;
+            border: 2px solid red;
+            margin: 34px;
+            padding: 34px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <div class="box">box1</div>
+        <div class="box">box2</div>
+        <div class="box">box3</div>
+        <div class="box">box4</div>
+        
+    </div>
+    
+    <script>
+        document.title="vikash sharma";
+        console.log(document.body);
+        document.body.style.backgroundColor="grey"
+
+        let allBox = document.getElementsByClassName("box");
+        console.log(allBox);
+        allBox[0].style.backgroundColor = "black"
+        // using loop change color of all boxes
+        for(const value of allBox) {
+            value.style.backgroundColor = 'black'
+        }
+        allBox[2].style.backgroundColor = "blue"
+
+        // using queryselector we can acess first element have class .box
+        document.querySelector(".box").style.backgroundColor = "yellow";
+        // for selectng all elements use-
+        // document.querySelectorAll(".box").style.backgroundColor = "yellow"; not working
+        console.log(document.querySelectorAll(".box"));
+        // it returns a node list we change style of all elments using for loop
+        
+        // document.querySelectorAll(".box").forEach(e=>{
+        //     e.style.backgroundColor ="red";
+        // })
+
+
+    </script>
+</body>
+</html>

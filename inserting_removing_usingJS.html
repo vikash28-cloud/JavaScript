@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inserting and removing element</title>
+    <style>
+        .container{
+            width: 75vw;
+           min-height: 50vh;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid purple;
+            flex-wrap: wrap;
+        }
+        .box{
+            width: 30vw;
+            height: 20vh;
+            margin: auto;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box" style="display: flex">
+            vikash sharma
+        </div>
+        <div class="box">
+            vikash sharma
+        </div>
+       
+
+    </div>
+       
+    <script>
+
+        console.log(document.querySelector(".box").innerHTML)
+
+        // hide any element using javascript
+        console.log(document.querySelector(".container").hidden); //it returns false because it is not hidden
+
+        // document.querySelector(".container").hidden = true;
+        document.querySelector(".container").hidden=true;
+
+        // change inner html of any element
+        document.querySelector(".box").innerHTML = "hey this is vikash "
+
+       console.log(document.querySelector('.container').hasAttribute("hidden"));  //return true because container has attribute hidden
+
+       console.log(document.querySelector(".container").hasAttribute("style"));
+       
+       console.log(document.querySelector(".box").hasAttribute("style"))
+       console.log(document.querySelector(".box").getAttribute("style"))
+
+    //    document.querySelector(".box").setAttribute("style","display:none")
+    //    change style display flex to none at box 
+       console.log(document.querySelector(".box").getAttribute("style"))
+
+    // insert using javascript
+    let div = document.createElement("div");
+    div.innerHTML="it is created using javascript";
+    div.setAttribute("class","box");
+    document.querySelector(".container").append(div);
+
+    // inserting adjacent element using javascript
+    let cont = document.querySelector(".container");
+    cont.insertAdjacentHTML("afterbegin","<h2>my name is vikash shamrma and i am a student of gla university</h2>")
+
+    // remove an element using javascript
+    document.querySelector(".box").remove();
+    // first box element removes
+
+
+
+    </script>
+
+</body>
+</html>

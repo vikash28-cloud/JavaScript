@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>advance js concepts in html</h1>
+
+    <script>
+        let obj = {
+            a:'1',
+            b:'2',
+            c:'3'
+        }
+        console.log(obj.a)
+        let {a,b} = obj
+        console.log(a,b);
+
+        function sum (a,b,c,d){
+            return a+b+c+d
+        }
+        let arr=[1,4,6,2];
+        // sum of arr = arr[0] + arr[1]+arr[2]+arr[3];
+        console.log(sum(...arr));     //... is spread operator
+
+    </script>
+</body>
+</html>

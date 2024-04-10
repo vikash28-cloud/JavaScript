@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>website Builder</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+        * {
+            margin: 0px;
+            padding: 0px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .container {
+            width: 90vw;
+            min-height: 50vh;
+            margin: auto;
+            border: 1px solid red;
+            padding: 10px;
+        }
+
+        .box {
+            width: 65vw;
+            display: flex;
+            padding: 7px;
+            gap: 10px;
+            background-color: black;
+            color: white;
+            border-radius: 2px;
+            margin: 10px;
+        }
+
+        .image {
+            position: relative;
+            width: 130px;
+            height: 70px;
+        }
+
+        img {
+            border-radius: 10px;
+        }
+
+        .text h3 {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .text p {
+            font-size: 10px;
+            color: rgb(185, 181, 181);
+            margin-top: 5px;
+        }
+
+        .time {
+            position: absolute;
+            color: white;
+            background-color: black;
+            opacity: 0.8;
+            bottom: 1px;
+            right: 3px;
+            text-align: center;
+            font-size: 9px;
+            border-radius: 2px;
+            padding: 1px 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <div class="image">
+                <img src="https://i.ytimg.com/vi/tVzUXW6siu0/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLB0alxLSXCSEPITzWr-XXUiv1oglQ"
+                    alt="" width="100%" height="100%">
+                <div class="time">01:34</div>
+            </div>
+            <div class="text">
+                <h3>Installing VS Code & How Websites Work | Sigma Web Development Course-Tutorial #1</h3>
+                <p>CodeWithHarry . 1.2M views . 6 months ago</p>
+            </div>
+        </div>
+        
+    </div>
+    <div class="container2">
+
+    </div>
+
+    <script>
+
+        function CreateCard(title, cName, views, month, time) {
+                if(views<1000000){
+                    views = views/1000+"K";
+                }
+                else if(views>1000000){
+                    views = views/1000000+"M";
+                }
+                else {
+                    views = views/1000+"K";
+                }
+
+            let ytcard = `
+                <div class="box">
+                <div class="image">
+                    <img src="https://i.ytimg.com/vi/tVzUXW6siu0/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLB0alxLSXCSEPITzWr-XXUiv1oglQ"
+                        alt="" width="100%" height="100%">
+                    <div class="time">${time}</div>
+                </div>
+                <div class="text">
+                    <h3>${title}</h3>
+                    <p>${cName} . ${views} Views . ${month} Months ago</p>
+                    </div>
+                </div>
+            `
+            document.querySelector(".container").innerHTML = document.querySelector(".container").innerHTML + ytcard;
+        }
+
+        CreateCard("Installing VS Code & How Websites Work | Sigma Web Development Course-Tutorial #1", "CodeWithHarry ", "123000", "9", "19:09");
+
+        
+    </script>
+</body>
+
+</html>

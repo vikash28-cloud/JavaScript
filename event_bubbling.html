@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event bubbling</title>
+    <style>
+        .child{
+            width: 30px;
+            border: 2px solid red;
+            padding: 10px;
+            cursor: pointer;
+          
+        }
+        .parent{
+            width:90px;
+            border: 2px solid blue;
+            padding: 10px;
+            cursor: pointer;
+           
+        }
+        .container{
+            width: 130px;
+            border: 2px solid green;
+            padding: 10px;
+            margin:100px auto;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+        <div class="container">
+            container
+            <div class="parent">
+                parent
+                <div class="child">child</div>
+            </div>
+        </div>
+        <script>
+            // add event listener to child class
+            document.querySelector(".child").addEventListener("click",(e)=>{
+                e.stopPropagation();
+                // event is not propagate further
+                alert("child is clicked")
+            })
+            // add event listener to parent class
+            document.querySelector(".parent").addEventListener("click",(e)=>{
+                // if we click on this event bubbling happens untill we use stop propagation
+                alert("parent is clicked")
+            })
+            // add event listener to container class
+            document.querySelector(".container").addEventListener("click",(e)=>{
+                
+                alert("container is clicked")
+            })
+
+            // we use stop propagation to stop event bubbling
+           
+        </script>
+</body>
+</html>

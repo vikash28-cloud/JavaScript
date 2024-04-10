@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callback & promises</title>
+</head>
+<body>
+    <h2>Callback & promises</h2>
+
+
+    <script>
+        // asynchronous programming
+        // asynchronous programming is a way for a computer program to handle multiple tasks simultaneously rather than executing them one after the other.
+// example 
+        console.log(("runs first"))
+        console.log(("runs second"))
+
+        setTimeout(() => {
+            console.log("set time out execution first")
+        }, 5000);
+
+        // settimeout ke liye interpreter rukega nahi aage execute karega code ko
+
+        console.log("runs third");
+        
+        setTimeout(() => {
+            console.log("set time out execution second")
+        }, 2000);
+        console.log("runs third");
+// example
+        // callback function
+        function fun1(a,fun2){
+            console.log(a);
+            fun2(3);
+        }
+
+        console.log(fun1(10,(a)=>{
+            console.log(a*2)
+        }))
+// example
+        // function dataModify(a,b){
+        //     console.log(a);
+        //     console.log(b);
+        // }
+        function getDatAPI(a,b,dataModify){
+            setTimeout(() => {
+                a*=10;
+                b*=10;
+            }, 3000);
+
+            setTimeout(() => {
+                dataModify(a,b);
+            }, 4000);
+            console.log("data is in processing")
+
+            
+        }
+        getDatAPI(2,3,(a,b)=>{
+            console.log(a);
+            console.log(b);
+        });
+// example
+
+        function getdata(id,getNextData){
+            setTimeout(() => {
+                console.log("data is ",id);
+                getNextData();
+            }, 3000);
+        }
+
+        // callback hell<= nested callbacks forms a pyramid structure called pyramid of DOM
+        // this type of code is very complex and NoN understandable
+        getdata(101,()=>{
+            getdata(2002,()=>{
+                getdata(3003,()=>{
+                    getdata(4004);
+                })
+            });
+        })
+        // promise approach is used to avoid callback hell
+
+        
+    </script>
+</body>
+</html>

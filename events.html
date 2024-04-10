@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript events</title>
+</head>
+<body>
+    <h1>events events-bubbling setInterval & setTimeout</h1>
+
+
+    <button>click me</button>
+
+
+
+<script>
+    let btn = document.querySelector("button");
+
+    // click is a event 
+ 
+    btn.addEventListener("dblclick", ()=>{
+        let h1 = document.createElement("h1");
+        h1.innerHTML = "button is clicked by user"
+        document.querySelector("body").append(h1);
+       
+    })
+
+    document.querySelector("body").addEventListener("contextmenu", ()=>{
+        alert("don't open context menu")
+    })
+    document.addEventListener("keydown",(e)=>{
+        console.log(e);
+        alert(`${e.key}  ${e.keyCode}`)
+    })
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<htm lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>fetch api</title>
+        <style>
+            .box {
+                width: 75vw;
+                height: 40vh;
+                margin: 30px auto;
+                background-color: black;
+                color: white;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                display: flex;
+                justify-content: flex-start;
+                padding: 20px 20px;
+                box-sizing: border-box;
+                box-shadow: 0px 0px 50px black;
+            }
+
+            button {
+                position: relative;
+                left: 45%;
+                width: 20vw;
+                height: 5vh;
+                border: none;
+                border-radius: 20px;
+                font-family: cursive;
+                font-size: 16px;
+                background-color: grey;
+                color: white;
+                cursor: pointer;
+            }
+
+            button:hover {
+                background-color: black;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>fetch api</h1>
+
+        <div class="box">
+            <p>fact</p>
+        </div>
+        <button>Get Fact</button>
+
+        <script>
+            let url = "https://cat-fact.herokuapp.com/facts";
+
+            // const promise = fetch(url);  //fetch(url) returns  a promise
+            // console.log(data);
+
+            // fetching api data using async and await
+    
+            const fetchAPI = async () => {
+                let response = await fetch(url);
+                let data = await response.json(); //convert response into json
+                console.log(response);
+                console.log(response.status)
+                console.log(data);
+                console.log("fact = ", data[0].text);
+                
+            }
+
+
+            //fetching api data without using async and await
+            // function getdata(){
+            //     fetch(url).then((response)=>{
+            //         return response.json();
+            //     }).then((result)=>{
+
+            //         console.log(result)
+            //     }).catch((err)=>{
+            //         console.log(err);
+            //     })
+            // }
+            // getdata()
+
+
+            // fetch and json method is async
+
+            //-------------- some terms----------------------/
+            /*
+                (http request)network request => GET POST PUT DELETE PATCH
+                dataformat      => AJAX  JSON
+                json() -> this method also returns another promise
+              
+    
+    
+            
+            */
+
+
+
+            
+
+        </script>
+    </body>
+
+    </html>

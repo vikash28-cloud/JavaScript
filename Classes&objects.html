@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oop's</title>
+</head>
+<body>
+    <h1>Classes & Objects</h1>
+    <script>
+        /*
+        class animal{
+            constructor(name){
+                console.log("object is initialized")
+                this.name = name;
+            }
+            speak(){console.log("speak...")};
+
+            getdata(x){
+                return x*x;
+            }
+        }
+        let ob1 = new animal();
+        ob1.speak();
+        let ans = ob1.getdata(20);
+        console.log(ans);
+        let ob2 = new animal("dog")
+        console.log(ob2.name);
+        */
+
+        // inheritance
+        class animal{
+            constructor(name){
+                console.log("object is initialized")
+                this.name = name;
+            }
+            speak(){console.log("speak...")};
+
+            getdata(x){
+                return x*x;
+            }
+        }
+        class lion extends animal{
+
+        }
+        let ob1 = new animal();
+        ob1.speak();
+        let ans = ob1.getdata(20);
+        console.log(ans);
+        let ob2 = new animal("dog")
+        console.log(ob2.name);
+
+        let ob3 = new lion();
+        ob3.speak();
+    </script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async & Await</title>
+</head>
+
+<body>
+    <h1>Async and Await</h1>
+
+</body>
+<script>
+    // asynchronous function always returns a promise
+    // The async keyword can be placed before the function declaration to make it asynchronous
+    // The await keyword is used inside an async function to wait for a Promise to be resolved or rejected (promise settled)
+
+    async function api() {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                console.log("weather data is fetched");
+                resolve(200);
+            }, 3000);
+        })
+    }
+
+    // we can use await in only async functions
+    // await api(); this is not valid, we need to create a new async function
+
+    async function getWeatherData() {
+        await api();
+        await api();
+        console.log("hello world")   //it executes after api() because of await
+        // remove await for difference
+    }
+    //getWeatherData();
+
+    function getdata(id) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                console.log("data is ",id);
+                resolve("success");
+            }, 3000)
+
+        })
+    }
+
+    async function getIDdata(){
+        console.log("getting data..")
+        await getdata(10);
+        console.log("getting data..")
+        await getdata(20);
+        console.log("getting data..")
+        await getdata(30);
+        console.log("getting data..")
+        await getdata(40);
+        console.log("getting data..")
+        await getdata(50);
+    }
+    // getIDdata();
+
+    // one small problem is that we have to create  a extra function to call our main function with await 
+
+    // to solve this problem we have
+    // iife -> immediately invoked function expression
+    // iife functions invoked by itself we  donot need to write function call to invoke iife functions
+
+    // suppose we have previous code 
+
+    (async function(){
+        console.log("getting data..")
+        await getdata(10);
+        console.log("getting data..")
+        await getdata(20);
+        console.log("getting data..")
+        await getdata(30);
+        console.log("getting data..")
+        await getdata(40);
+        console.log("getting data..")
+        await getdata(50);
+    })();
+// now it called automatically without externa call
+
+
+</script>
+
+</html>
